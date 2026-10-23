@@ -1,6 +1,6 @@
 # Portrait Alternatives
 
-These are three competing designs for the character's default portrait.
+These are three designs for the character's default portrait.
 
 ## A — Freckled face
 

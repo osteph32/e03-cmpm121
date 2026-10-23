@@ -5,7 +5,10 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute(
+  "aria-label",
+  "A happy face with freckles on cheeks and a smile",
+);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -16,6 +19,25 @@ head.setAttribute("fill", "#f3cf87");
 head.setAttribute("stroke", "#302c29");
 head.setAttribute("stroke-width", "4");
 face.append(head);
+
+for (const cheekX of [59, 141]) {
+  for (let row = 0; row < 6; row++) {
+    for (let column = 0; column < 10; column++) {
+      const freckle = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "circle",
+      );
+      const x = cheekX + (column - 4.5) * 3.5 + (row % 2) * 1.2;
+      const y = 103 + row * 4;
+
+      freckle.setAttribute("cx", String(x));
+      freckle.setAttribute("cy", String(y));
+      freckle.setAttribute("r", "1.2");
+      freckle.setAttribute("fill", "#99552e");
+      face.append(freckle);
+    }
+  }
+}
 
 const leftEye = document.createElementNS(
   "http://www.w3.org/2000/svg",
@@ -49,11 +71,9 @@ nose.setAttribute("stroke-width", "4");
 nose.setAttribute("stroke-linecap", "round");
 face.append(nose);
 
-const mouth = document.createElementNS("http://www.w3.org/2000/svg", "line");
-mouth.setAttribute("x1", "75");
-mouth.setAttribute("y1", "137");
-mouth.setAttribute("x2", "125");
-mouth.setAttribute("y2", "137");
+const mouth = document.createElementNS("http://www.w3.org/2000/svg", "path");
+mouth.setAttribute("d", "M 75 137 Q 100 145 125 137 Q 100 174 75 137 Z");
+mouth.setAttribute("fill", "#66352c");
 mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
