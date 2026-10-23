@@ -24,3 +24,15 @@ These are three competing designs for the character's default portrait.
 
 Choose the portrait whose expression and personality read most clearly
 at a small size.
+
+## Exploration status
+
+- A: Explored on branch A. Added freckles across two cheek patches
+  and an open smile and the friendly smile.
+- B: Explored on branch B. Added adventurer hat and bandage SVG
+  images with a smile.
+- C: Explored on branch C. Added lavender to blue gradient shading,
+  relaxed eyes, and a Bézier curve smile.
+
+All three alternatives remain on their own branches. None has been
+merged or chosen yet.
