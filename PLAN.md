@@ -36,3 +36,12 @@ at a small size.
 
 All three alternatives remain on their own branches. None has been
 merged or chosen yet.
+
+## Final decision
+
+I chose branch C: the dreamy portrait with purple to blue gradient.My criterion was how clearly the expression and personality read at a
+small size. C's simple features and color transition communicate
+a calm personality clearly.
+
+C was rebased onto main's refactor, and main was then forwarded
+to C. The portrait is constructed inside buildFace(). A and B remain on their original branches as separate explorations.
