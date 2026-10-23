@@ -5,7 +5,40 @@ function buildFace(): SVGSVGElement {
   const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   face.setAttribute("viewBox", "0 0 200 200");
   face.setAttribute("role", "img");
-  face.setAttribute("aria-label", "A neutral face");
+  face.setAttribute(
+    "aria-label",
+    "A dreamy face with a calm expression and purple to blue shading",
+  );
+
+  // Purple to Blue gradient
+  const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+  const gradient = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "linearGradient",
+  );
+  gradient.setAttribute("id", "ptb-shade");
+  gradient.setAttribute("x1", "0%");
+  gradient.setAttribute("y1", "0%");
+  gradient.setAttribute("x2", "0%");
+  gradient.setAttribute("y2", "100%");
+
+  const topColor = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "stop",
+  );
+  topColor.setAttribute("offset", "0%");
+  topColor.setAttribute("stop-color", "#b899e8");
+
+  const bottomColor = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "stop",
+  );
+  bottomColor.setAttribute("offset", "100%");
+  bottomColor.setAttribute("stop-color", "#a6e4f5");
+
+  gradient.append(topColor, bottomColor);
+  defs.append(gradient);
+  face.append(defs);
 
   const head = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -26,8 +59,8 @@ function buildFace(): SVGSVGElement {
   );
   leftEye.setAttribute("cx", "72");
   leftEye.setAttribute("cy", "82");
-  leftEye.setAttribute("rx", "6");
-  leftEye.setAttribute("ry", "9");
+  leftEye.setAttribute("rx", "9");
+  leftEye.setAttribute("ry", "3");
   leftEye.setAttribute("fill", "#302c29");
   face.append(leftEye);
 
@@ -37,8 +70,8 @@ function buildFace(): SVGSVGElement {
   );
   rightEye.setAttribute("cx", "128");
   rightEye.setAttribute("cy", "82");
-  rightEye.setAttribute("rx", "6");
-  rightEye.setAttribute("ry", "9");
+  rightEye.setAttribute("rx", "9");
+  rightEye.setAttribute("ry", "3");
   rightEye.setAttribute("fill", "#302c29");
   face.append(rightEye);
 
@@ -52,11 +85,9 @@ function buildFace(): SVGSVGElement {
   nose.setAttribute("stroke-linecap", "round");
   face.append(nose);
 
-  const mouth = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  mouth.setAttribute("x1", "75");
-  mouth.setAttribute("y1", "137");
-  mouth.setAttribute("x2", "125");
-  mouth.setAttribute("y2", "137");
+  const mouth = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  mouth.setAttribute("d", "M 75 133 Q 100 157 125 133");
+  mouth.setAttribute("fill", "none");
   mouth.setAttribute("stroke", "#302c29");
   mouth.setAttribute("stroke-width", "4");
   mouth.setAttribute("stroke-linecap", "round");
